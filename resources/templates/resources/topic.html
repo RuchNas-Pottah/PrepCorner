@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ topic.name }} | {% endblock %}
+
+{% block content %}
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-3xl lg:text-6xl text-white">{{ topic.name }}</h1>
+</div>
+
+<div class="lg:w-3/4 mx-4 lg:mx-auto p-4 bg-white rounded-xl">
+    <div class="contents space-y-3" id="contents">
+        {% for c in contents %}
+        <div class="p-4 bg-gray-200 rounded xl">
+            <!-- <p class =font-semibold>{{ m.user.username }}</p> -->
+            <p>{{c.name}} : <a href={{c.link}} target="_blank" style="color: blue;">{{ c.link }}</a></p>
+            <p>{{ c.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}{% endblock %}Community</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .chat-messages {
+                height: 400px;
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+    <body class="bg-gradient-to-r from-cyan-500 to-blue-500 ...">
+        <nav class="flex items-center justify-between px-4 py-6 bg-blue-300">
+            <div>
+                <a href="/" class="text-xl text-black">PrepCorner</a>
+            </div>
+            <div class="flex items-center space-x-4">
+            {% if request.user.is_authenticated %}
+                <a href="/rooms/" class="px-5 py-3 rounded-xl text-white bg-blue-500 hover:bg-blue-600">Groups</a>
+                <a href="/resources/" class="px-5 py-3 rounded-xl text-white bg-violet-500 hover:bg-violet-600">Resources</a>
+
+                <a href="/logout/" class="px-5 py-3 rounded-xl text-white bg-orange-400 hover:bg-orange-300">Log out</a>
+            {% else %}
+                <a href="/login/" class="px-5 py-3 rounded-xl text-white bg-blue-500 hover:bg-purple-400">Log in</a>
+        
+                <a href="/signup/" class="px-5 py-3 rounded-xl text-white bg-purple-600 hover:bg-purple-700">Sign up</a>
+            {% endif %}
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+        <!-- <div class="p-10 lg:p-20 text-center">
+            <h1 class="text-3xl lg:text-6xl text-white">PrepCorner</h1>
+        </div> -->
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
