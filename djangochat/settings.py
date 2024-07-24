@@ -34,6 +34,7 @@ LOGIN_URL = '/login/'
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'channels',
     'room',
     'resources'
 ]
@@ -74,7 +74,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'djangochat.wsgi.application'
 ASGI_APPLICATION = 'djangochat.asgi.application'
 
 CHANNEL_LAYERS = {
@@ -89,9 +88,9 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'prepcorner_db',
+        'NAME': 'prepcorner',
         'USER': 'root',
-        'PASSWORD': 'harrypotter',
+        'PASSWORD': '1234',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
